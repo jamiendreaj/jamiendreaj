@@ -20,7 +20,7 @@ Soundscapes for falling asleep, a recorder that captures snoring and night sound
 and wind-down tools.
 `React Native` `Expo` `Audio` `HealthKit`
 
-**Tutto AI** — An AI assistant in one app *(in App Store review)*
+**[Tutto AI](https://apps.apple.com/us/app/tutto-ai/id6776184829)** — An AI assistant in one app
 Chat, translation across 12 languages, PDF summarising, image analysis and hands-free
 voice. The backend is a Cloudflare Worker that keeps API credentials server-side, with
 explicit consent before anything reaches an AI provider.
