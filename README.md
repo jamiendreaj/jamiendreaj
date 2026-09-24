@@ -1,14 +1,23 @@
 ## Jamie Ndreaj
 
-I build iOS apps — design, code, backend, and App Store submission.
+I build AI products and ship them — prompt architecture, evaluation, backend, and
+App Store submission.
 
-Self-taught developer. Most recently a software support intern at a car-rental
-software company in Italy (Dec 2025 – May 2026). Before tech, nine years in real
-estate operations across New York and Las Vegas.
+Self-taught. Four Claude-powered apps designed and built solo. Most recently a
+software support intern at a car-rental software company in Italy (Dec 2025 –
+May 2026), working live production tickets against PostgreSQL. Before tech, nine
+years in real estate across New York and Las Vegas.
 
-**US & Italian citizen — no sponsorship required. Relocating to New York.**
+**US & Italian (EU) dual citizen — can be hired in the United States or anywhere
+in the EU, no sponsorship required.**
 
 ### Shipped
+
+**[Tutto AI](https://apps.apple.com/us/app/tutto-ai/id6776184829)** — An AI assistant in one app
+Chat, translation across 12 languages, PDF summarising, image analysis and hands-free
+voice. The backend is a Cloudflare Worker that keeps API credentials server-side, with
+explicit consent before anything reaches an AI provider.
+`React Native` `Claude API` `Cloudflare Workers`
 
 **[NourishMe](https://apps.apple.com/us/app/nourishme-ai-nutrition/id6766461839)** — Nutrition tracking with AI food recognition
 Point the camera at a plate or scan a barcode and it works out what you're eating —
@@ -20,11 +29,24 @@ Soundscapes for falling asleep, a recorder that captures snoring and night sound
 and wind-down tools.
 `React Native` `Expo` `Audio` `HealthKit`
 
-**[Tutto AI](https://apps.apple.com/us/app/tutto-ai/id6776184829)** — An AI assistant in one app
-Chat, translation across 12 languages, PDF summarising, image analysis and hands-free
-voice. The backend is a Cloudflare Worker that keeps API credentials server-side, with
-explicit consent before anything reaches an AI provider.
-`React Native` `Claude API` `Cloudflare Workers`
+**Alter: AI Chief of Staff** — *submitted, in App Store review*
+An alarm that wakes you, reads your day aloud in a real voice, then lets you talk
+back. Claude writes the briefing from your calendar and your private notes on the
+people in it — interruptible speech, voice-driven calendar edits with confirmation
+before anything destructive, notes encrypted on-device.
+`Claude API` `ElevenLabs` `AlarmKit` `Cloudflare Workers` `SQLCipher`
+
+### Engineering notes
+
+**[llm-production-patterns](https://github.com/jamiendreaj/llm-production-patterns)** —
+Evaluation harnesses, reliability patterns and encrypted local storage extracted from
+the four apps. Each pattern exists because something failed in production first:
+silent truncation against the token ceiling, a shared secret that drifted between two
+files, a retry that should never have retried.
+
+**[mobile-api-proxy](https://github.com/jamiendreaj/mobile-api-proxy)** —
+Keeping third-party API keys off the device: a small Cloudflare Worker that holds the
+secret server-side.
 
 ### Also built
 
@@ -41,10 +63,22 @@ Client-facing support on a production fleet-management system: worked incoming t
 read production logs to trace failures, and wrote SQL against PostgreSQL for retrieval
 and reporting. Jira, sprint coordination, Slack.
 
+### Certifications
+
+Anthropic — Claude Certified Architect path, 2026: Claude 101 · Building with the
+Claude API · Introduction to Model Context Protocol · AI Fluency · Claude on Google
+Cloud · Claude Code 101 · Claude Code in Action
+
+Google Cybersecurity Professional Certificate · CompTIA Security+ (SY0-701) ·
+Splunk Search Expert 101
+
 ### Working with
 
-`TypeScript` `React Native` `Expo` `Node.js` `Cloudflare Workers` `PostgreSQL` `Git` `Jira`
+`TypeScript` `React Native` `Expo` `Node.js` `Cloudflare Workers` `PostgreSQL`
+`SQLCipher` `Claude API` `MCP` `Git` `Jira`
+
+Languages: English · Italian · Spanish · Albanian
 
 ### Elsewhere
 
-[Portfolio](https://jamiendreaj.github.io) · xhemindreaj@gmail.com
+[Portfolio](https://jamiendreaj.github.io) · jxnstudioapp@gmail.com
