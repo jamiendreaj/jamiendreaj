@@ -3,8 +3,8 @@
 I build AI products and ship them — prompt architecture, guardrails, evaluation,
 backend, and App Store submission.
 
-Self-taught. Four Claude-powered apps designed and built solo, plus six open-source
-agents built around one question: **what must a model be structurally unable to do?**
+Self-taught. Four Claude-powered apps designed and built solo, plus nine open-source
+repositories built around one question: **what must a model be structurally unable to do?**
 Most recently a software support intern at a car-rental software company in Italy
 (Dec 2025 – May 2026), working live production tickets against PostgreSQL. Before
 tech, nine years in real estate across New York and Las Vegas.
@@ -43,20 +43,32 @@ before anything destructive, notes encrypted on-device.
 
 ### Agents
 
-Six repositories. **226 tests, every one offline** against an injected client — a suite
+Nine repositories, eight of them with test suites. **265 tests, every one offline** against an injected client — a suite
 that needs an API key is a suite that gets skipped in CI, and a guardrail nobody runs
-is a comment. CI on all six.
+is a comment. CI on all eight.
 
 | | What it will not do | Tests |
 | --- | --- | --- |
-| **[grounded-agents](https://github.com/jamiendreaj/grounded-agents)** | Call anything sendable unless the model finished *and* every guard passed | 17 |
+| **[on-duty](https://github.com/jamiendreaj/on-duty)** | Let the model switch a skill on, or let a skill use a capability it never declared | 20 |
+| **[grounded-agents](https://github.com/jamiendreaj/grounded-agents)** | Call anything sendable unless the model finished *and* every guard passed | 18 |
 | **[document-extraction-agent](https://github.com/jamiendreaj/document-extraction-agent)** | Keep a field whose quotation is not in the document, or choose between two clauses that disagree | 58 |
 | **[property-enquiry-agent](https://github.com/jamiendreaj/property-enquiry-agent)** | Screen on a protected characteristic, or collect what the jurisdiction forbids | 37 |
 | **[insurance-enquiry-agent](https://github.com/jamiendreaj/insurance-enquiry-agent)** | Paraphrase policy wording, quote a price, bind cover, or decide a claim | 38 |
 | **[direct-booking-agent](https://github.com/jamiendreaj/direct-booking-agent)** | Answer a guest from anything but the property's own dossier | 41 |
 | **[agent-evals](https://github.com/jamiendreaj/agent-evals)** | Call a change an improvement without a baseline to compare it to | 35 |
+| **[mobile-api-proxy](https://github.com/jamiendreaj/mobile-api-proxy)** | Let a third-party API key reach the device | 18 |
 
-**The two that explain the rest:**
+**The three that explain the rest:**
+
+**[on-duty](https://github.com/jamiendreaj/on-duty)** — which skills an agent has
+switched on, decided by deterministic code rather than by the model. The model may
+propose; it cannot activate. A skill's declared capabilities are enforced rather than
+advisory, and a policy may only object, never widen. Measured over 360 calls on
+`claude-sonnet-5-5`, four arms of the same three cases: with stale instructions sitting
+in context, compliance fell to **33%** (30/90). A length-matched placebo block, there
+to rule out *more text helps*, reached **51%** (46/90). on-duty held **100%** (90/90),
+level with the clean baseline. One of the three cases passed in every arm — a null
+result, reported as one rather than dropped.
 
 **[grounded-agents](https://github.com/jamiendreaj/grounded-agents)** — the shared agent
 loop, in TypeScript. Tool handlers are typed from the tool's own JSON Schema, so an
@@ -83,10 +95,6 @@ Evaluation harnesses, reliability patterns and encrypted local storage extracted
 the four apps. Each pattern exists because something failed in production first:
 silent truncation against the token ceiling, a shared secret that drifted between two
 files, a retry that should never have retried.
-
-**[mobile-api-proxy](https://github.com/jamiendreaj/mobile-api-proxy)** —
-Keeping third-party API keys off the device: a small Cloudflare Worker that holds the
-secret server-side.
 
 ---
 
